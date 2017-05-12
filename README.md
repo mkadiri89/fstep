@@ -44,4 +44,4 @@ Once everything has been setup visit `http://localhost/fstep/index.php?action=qu
 
 **Note**
 
-Due to time constrains I was unable to complete this application, there is room for imporvement.
+Due to time constrains I was unable to complete this application, there is room for improvement.

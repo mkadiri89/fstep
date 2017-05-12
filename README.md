@@ -36,7 +36,7 @@ values('Mr', 'Jack', 'Robson'),
 
 **Running unit tests**
 
-/vendor/bin/phpunit test
+`/vendor/bin/phpunit test`
 
 **Viewing the application**
 

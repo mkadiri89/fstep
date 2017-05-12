@@ -1,0 +1,47 @@
+**Setup**
+
+clone this repo on to an envrionment such as XAMPP where you have access to mysql and PHP
+
+`git clone https://github.com/mkadiri89/fstep.git`
+
+Run the following queries to create the tables and insert sample data
+
+```
+create database fstep;
+
+create table customer
+(
+	id int not null auto_increment,
+	title varchar(64) not null,
+	first_name varchar(255) not null,
+	last_name varchar(255) not null,
+	primary key(id)
+);
+
+create table service
+(
+	id int not null auto_increment,
+	name varchar(255) not null,
+	primary key(id)
+);
+
+insert into service (name) values("Housing"), ("Benefits"), ("Council Tax"), ("Fly-tipping"), ("Missed Bin");
+
+insert into customer (title, first_name, last_name) 
+values('Mr', 'Jack', 'Robson'),
+('Mrs', 'Jane', 'Murray'),
+('Dr', 'Jill', 'Pepper'),
+('Mr', 'Mohammed', 'Kadiri');
+```
+
+**Running unit tests**
+
+/vendor/bin/phpunit test
+
+**Viewing the application**
+
+Once everything has been setup visit `http://localhost/fstep/index.php?action=queue` to view the application
+
+**Note**
+
+Due to time constrains I was unable to complete this application, there is room for imporvement.

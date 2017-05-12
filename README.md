@@ -1,6 +1,6 @@
 **Setup**
 
-clone this repo on to an envrionment such as XAMPP where you have access to mysql and PHP
+Clone this repo on to an envrionment such as XAMPP where you have access to mysql and PHP
 
 `git clone https://github.com/mkadiri89/fstep.git`
 

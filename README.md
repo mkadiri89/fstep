@@ -34,6 +34,8 @@ values('Mr', 'Jack', 'Robson'),
 ('Mr', 'Mohammed', 'Kadiri');
 ```
 
+Configure your database credentials by editing the `src/Config.php` file
+
 **Running unit tests**
 
 `/vendor/bin/phpunit test`

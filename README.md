@@ -34,7 +34,7 @@ values('Mr', 'Jack', 'Robson'),
 ('Mr', 'Mohammed', 'Kadiri');
 ```
 
-Configure your database credentials by editing the `src/Config.php` file
+Configure your database credentials by copying and renaming `config.php.template` to `config.php` and editing the array parameters
 
 **Running unit tests**
 

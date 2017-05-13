@@ -8,20 +8,15 @@ use src\Config;
 
 class Database
 {
-    private $config;
     private $pdo;
 
-    public function __construct(Config $config)
+    public function __construct($config)
     {
-        $this->config = $config;
-
         try {
             $this->pdo = new PDO(
-                'mysql:'
-                . 'host=' . $this->config->get('server') . ';'
-                . 'dbname=' . $this->config->get('database'),
-                $this->config->get('database_username'),
-                $this->config->get('database_password')
+                'mysql:' . 'host=' . $config['server'] . ';' . 'dbname=' . $config['database'],
+                $config['database_username'],
+                $config['database_password']
             );
 
             $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

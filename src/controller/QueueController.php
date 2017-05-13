@@ -8,7 +8,7 @@ use src\service\service\ServicesFactory;
 
 class QueueController extends Controller
 {
-    public function queue()
+    public function show()
     {
         $customers = (new CustomersFactory())->create()->getCustomers();
         $services = (new ServicesFactory())->create()->getServices();

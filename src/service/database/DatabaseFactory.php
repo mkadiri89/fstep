@@ -2,13 +2,11 @@
 
 namespace src\service\database;
 
-use src\Config;
-
 class DatabaseFactory
 {
     public function create()
     {
-        $config = new Config();
+        $config = include (__DIR__ . '/../../../config.php');
         return new Database($config);
     }
 }

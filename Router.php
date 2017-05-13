@@ -7,7 +7,14 @@ class Router
     public function __construct()
     {
         $this->routes = [
-            'queue' => src\controller\QueueController::class
+            'showQueue' => [
+                'method' => 'show',
+                'class' => src\controller\QueueController::class
+            ],
+            'saveCustomer' => [
+                'method' => 'save',
+                'class' => src\controller\QueueController::class
+            ]
         ];
     }
 

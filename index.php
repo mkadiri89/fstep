@@ -13,4 +13,4 @@ if (!isset($route)) {
     throw new Exception('Route ' . $route . ' does not exist');
 }
 
-(new $route($get, $view))->$action();
+(new $route['class']($get, $view))->$route['method']();

@@ -42,7 +42,7 @@ Configure your database credentials by editing the `src/Config.php` file
 
 **Viewing the application**
 
-Once everything has been setup visit `http://localhost/fstep/index.php?action=queue` to view the application
+Once everything has been setup visit `http://localhost/fstep/index.php?action=showQueue` to view the application
 
 **Note**
 

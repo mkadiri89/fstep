@@ -15,14 +15,14 @@ class CustomerRepository
 
     public function getCustomers()
     {
-        $stm = $this->db->getPdo()->prepare('select id, title, first_name, last_name from customer');
+        $stm = $this->db->getPdo()->prepare('select id, title, first_name, last_name from citizen');
         $stm->execute();
         return $stm->fetchAll();
     }
 
     public function addCustomer($title, $firstName, $lastName)
     {
-        $stm = $this->db->getPdo()->prepare("insert into customer (title, first_name, last_name) values(:title, :first_name, :last_name)");
+        $stm = $this->db->getPdo()->prepare("insert into citizen (title, first_name, last_name) values(:title, :first_name, :last_name)");
         $stm->execute([
             'title' => $title,
             'first_name' => $firstName,

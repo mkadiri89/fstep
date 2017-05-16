@@ -9,7 +9,7 @@ Run the following queries to create the tables and insert sample data
 ```
 create database fstep;
 
-create table customer
+create table citizen
 (
 	id int not null auto_increment,
 	title varchar(64) not null,
@@ -27,7 +27,7 @@ create table service
 
 insert into service (name) values("Housing"), ("Benefits"), ("Council Tax"), ("Fly-tipping"), ("Missed Bin");
 
-insert into customer (title, first_name, last_name) 
+insert into citizen (title, first_name, last_name) 
 values('Mr', 'Jack', 'Robson'),
 ('Mrs', 'Jane', 'Murray'),
 ('Dr', 'Jill', 'Pepper'),

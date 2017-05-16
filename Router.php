@@ -11,9 +11,9 @@ class Router
                 'method' => 'show',
                 'class' => src\controller\QueueController::class
             ],
-            'saveCustomer' => [
+            'saveCitizen' => [
                 'method' => 'save',
-                'class' => src\controller\QueueController::class
+                'class' => src\controller\CitizenController::class
             ]
         ];
     }

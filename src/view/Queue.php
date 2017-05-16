@@ -16,7 +16,7 @@
             <div class="panel panel-default half-panel">
                 <div class="panel-heading">New Customer</div>
                 <div class="panel-body">
-                    <form>
+                    <form action="saveCitizen">
                         <div class="form-group">
                             <label>Services</label>
                             <?php foreach($services as $service): ?>

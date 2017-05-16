@@ -20,7 +20,7 @@ class CustomerRepository
         return $stm->fetchAll();
     }
 
-    public function addCustomer($title, $firstName, $lastName)
+    public function add($title, $firstName, $lastName)
     {
         $stm = $this->db->getPdo()->prepare("insert into citizen (title, first_name, last_name) values(:title, :first_name, :last_name)");
         $stm->execute([

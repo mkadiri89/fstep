@@ -18,6 +18,14 @@ create table citizen
 	primary key(id)
 );
 
+create table queue
+(
+    id int not null auto_increment,
+    customer_id int not null,
+    datetime datetime,
+    primary key(id)
+);
+
 create table service
 (
 	id int not null auto_increment,

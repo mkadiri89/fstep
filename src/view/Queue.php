@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <title>Queue App</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -16,13 +17,13 @@
             <div class="panel panel-default half-panel">
                 <div class="panel-heading">New Customer</div>
                 <div class="panel-body">
-                    <form action="saveCitizen">
+                    <form id="queue-application-form" action="index.php?action=saveCitizen" method="post">
                         <div class="form-group">
                             <label>Services</label>
-                            <?php foreach($services as $service): ?>
+                            <?php foreach($services as $key => $service): ?>
                                 <div class="radio">
                                     <label>
-                                        <input type="radio" name="service" value="<?=$service->getId();?>"><?=$service->getName();?>
+                                        <input type="radio" name="service" <?php echo ($key==0 ? 'checked="checked"' : '');?>value="<?=$service->getId();?>"><?=$service->getName();?>
                                     </label>
                                 </div>
                             <?php endforeach; ?>
@@ -42,8 +43,8 @@
 
                         <div class="citizen-form">
                             <div class="form-group">
-                                <label for="sel1">Title</label>
-                                <select class="form-control" id="sel1">
+                                <label for="title">Title</label>
+                                <select class="form-control" name="title" id="title">
                                     <option>Mr</option>
                                     <option>Mrs</option>
                                     <option>Miss</option>
@@ -53,24 +54,24 @@
 
                             <div class="form-group">
                                 <label for="first_name">First name</label>
-                                <input type="text" class="form-control" id="first_name">
+                                <input type="text" class="form-control" name="first_name" id="first_name">
                             </div>
 
                             <div class="form-group">
                                 <label for="last_name">Last name</label>
-                                <input type="text" class="form-control" id="last_name">
+                                <input type="text" class="form-control" name="last_name" id="last_name">
                             </div>
                         </div>
 
                         <div class="organisation-form" style="display: none">
                             <div class="form-group">
-                                <label for="first_name">Name</label>
-                                <input type="text" class="form-control" id="name">
+                                <label for="name">Name</label>
+                                <input type="text" class="form-control" name="name" id="name">
                             </div>
                         </div>
 
                         <br>
-                        <button type="button" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
                 </div>
             </div>
@@ -91,7 +92,7 @@
                         <tbody>
                         <?php foreach ($customers as $key => $customer): ?>
                             <tr>
-                                <td><?= $key; ?></td>
+                                <td><?= ($key + 1); ?></td>
                                 <td><?= $customer->getTitle(); ?></td>
                                 <td><?= $customer->getFirstName() . ' ' . $customer->getLastName(); ?></td>
                                 <td>Housing</td>

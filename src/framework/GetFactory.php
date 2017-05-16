@@ -2,7 +2,7 @@
 
 namespace src\framework;
 
-class Getfactory
+class GetFactory
 {
     public function create()
     {

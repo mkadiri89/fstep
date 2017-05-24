@@ -1,14 +1,14 @@
 <?php
 
-namespace src\service\customer;
+namespace src\service\citizen;
 
-use src\service\database\DatabaseFactory;
+use src\service\database\Database;
 
 class CitizenRepositoryFactory
 {
     public function create()
     {
-        $database = (new DatabaseFactory())->create();
+        $database = Database::getInstance();
         return new CitizenRepository($database);
     }
 }

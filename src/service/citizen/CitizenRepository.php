@@ -1,6 +1,6 @@
 <?php
 
-namespace src\service\customer;
+namespace src\service\citizen;
 
 use src\service\database\Database;
 
@@ -28,5 +28,7 @@ class CitizenRepository
             'first_name' => $firstName,
             'last_name' => $lastName
         ]);
+
+        return $this->db->getPdo()->lastInsertId();
     }
 }

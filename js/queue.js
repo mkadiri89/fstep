@@ -15,19 +15,19 @@ $(function(){
             case 'citizen':
                 $citizen.show().find(':input').attr('disabled', false);
                 $organisation.hide().find(':input').attr('disabled', true);
-                $form.attr('action', 'saveCitizen');
+                $form.attr('action', 'index.php?action=saveCitizen');
                 break;
 
             case 'organisation':
                 $citizen.hide().find(':input').attr('disabled', true);
                 $organisation.show().find(':input').attr('disabled', false);
-                $form.attr('action', 'saveOrganisation');
+                $form.attr('action', 'index.php?action=saveOrganisation');
                 break;
 
             case 'anonymous':
                 $citizen.hide().find(':input').attr('disabled', true);
                 $organisation.hide().find(':input').attr('disabled', true);
-                $form.attr('action', 'saveAnonymous');
+                $form.attr('action', 'index.php?action=saveAnonymous');
                 break;
             default:
                 alert("Incorrect form switching action");

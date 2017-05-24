@@ -14,4 +14,9 @@ abstract class Controller
         $this->view = $view;
         $this->post = $post;
     }
+
+    public function redirect($url)
+    {
+        header('Location: ' . $url);
+    }
 }

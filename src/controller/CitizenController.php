@@ -2,27 +2,28 @@
 
 namespace src\controller;
 
+use DateTime;
 use src\framework\Controller;
-use src\service\customer\CitizenRepositoryFactory;
-use src\service\customer\CitizensFactory;
-use src\service\service\ServicesFactory;
+use src\model\Customer;
+use src\service\citizen\CitizenRepositoryFactory;
+use src\service\queue\QueueRepositoryFactory;
 
 class CitizenController extends Controller
 {
     public function save()
     {
-        (new CitizenRepositoryFactory())->create()->add(
-            $this->post->getParam('title'),
-            $this->post->getParam('first_name'),
-            $this->post->getParam('last_name')
-        );
+        $citizenRepository = (new CitizenRepositoryFactory())->create();
+        $queueRepository = (new QueueRepositoryFactory())->create();
 
-        $customers = (new CitizensFactory())->create()->getCustomers();
-        $services = (new ServicesFactory())->create()->getServices();
+        $title = $this->post->getParam('title');
+        $firstName = $this->post->getParam('first_name');
+        $lastName = $this->post->getParam('last_name');
+        $serviceId = $this->post->getParam('service');
 
-        $this->view->build('src\\view\\Queue.php', [
-            'services' => $services,
-            'customers' => $customers
-        ]);
+        $citizenId = $citizenRepository->add($title, $firstName, $lastName);
+        $datetime = (new DateTime())->format('Y-m-d H:i:s');
+        $queueRepository->add($citizenId, Customer::CITIZEN, $serviceId, $datetime);
+
+        $this->redirect('index.php?action=showQueue');
     }
 }

@@ -9,8 +9,9 @@ use src\Config;
 class Database
 {
     private $pdo;
+    private static $instance;
 
-    public function __construct($config)
+    private function __construct($config)
     {
         try {
             $this->pdo = new PDO(
@@ -24,6 +25,16 @@ class Database
         } catch (Exception $e) {
             echo "Unable to connect to the database";
         }
+    }
+
+    public static function getInstance()
+    {
+        if (!isset(self::$instance)) {
+            $config = include (__DIR__ . '/../../../config.php');
+            static::$instance = new static($config);
+        }
+
+        return static::$instance;
     }
 
     /**

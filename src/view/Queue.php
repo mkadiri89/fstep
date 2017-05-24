@@ -90,13 +90,13 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <?php foreach ($customers as $key => $customer): ?>
+                        <?php foreach ($queue as $key => $customer): ?>
                             <tr>
                                 <td><?= ($key + 1); ?></td>
-                                <td><?= $customer->getTitle(); ?></td>
-                                <td><?= $customer->getFirstName() . ' ' . $customer->getLastName(); ?></td>
-                                <td>Housing</td>
-                                <td>9:00</td>
+                                <td><?= $customer->getType(); ?></td>
+                                <td><?= $customer->getName(); ?></td>
+                                <td><?= $customer->getService(); ?></td>
+                                <td><?= $customer->getQueuedAt()->format('H:i:s'); ?></td>
                             </tr>
                         <?php endforeach; ?>
                         </tbody>

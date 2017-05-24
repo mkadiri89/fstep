@@ -2,7 +2,7 @@
 
 namespace src\service\customer;
 
-use src\model\Customer;
+use src\model\Citizen;
 use src\model\Service;
 
 class Citizens
@@ -15,7 +15,7 @@ class Citizens
     }
 
     /**
-     * @return Customer[]
+     * @return Citizen[]
      */
     public function getCustomers()
     {
@@ -23,7 +23,7 @@ class Citizens
         $customers = [];
 
         foreach ($customerData as $datum) {
-            $customers[] = new Customer($datum['id'], $datum['title'], $datum['first_name'], $datum['last_name']);
+            $customers[] = new Citizen($datum['id'], $datum['title'], $datum['first_name'], $datum['last_name']);
         }
 
         return $customers;

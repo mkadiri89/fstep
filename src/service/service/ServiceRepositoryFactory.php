@@ -2,13 +2,13 @@
 
 namespace src\service\service;
 
-use src\service\database\DatabaseFactory;
+use src\service\database\Database;
 
 class ServiceRepositoryFactory
 {
     public function create()
     {
-        $database = (new DatabaseFactory())->create();
+        $database = Database::getInstance();
         return new ServiceRepository($database);
     }
 }

@@ -9,6 +9,8 @@ Run the following queries to create the tables and insert sample data
 ```
 create database fstep;
 
+use fstep;
+
 create table citizen
 (
 	id int not null auto_increment,
@@ -18,10 +20,25 @@ create table citizen
 	primary key(id)
 );
 
+create table organisation
+(
+	id int not null auto_increment,
+	name varchar(255) not null,
+	primary key(id)
+);
+
+create table anonymous
+(
+	id int not null auto_increment,
+	primary key(id)
+);
+
 create table queue
 (
     id int not null auto_increment,
     customer_id int not null,
+    customer_type varchar(64) not null,
+    service_id int not null,
     datetime datetime,
     primary key(id)
 );
@@ -35,11 +52,6 @@ create table service
 
 insert into service (name) values("Housing"), ("Benefits"), ("Council Tax"), ("Fly-tipping"), ("Missed Bin");
 
-insert into citizen (title, first_name, last_name) 
-values('Mr', 'Jack', 'Robson'),
-('Mrs', 'Jane', 'Murray'),
-('Dr', 'Jill', 'Pepper'),
-('Mr', 'Mohammed', 'Kadiri');
 ```
 
 Configure your database credentials by copying and renaming `config.php.template` to `config.php` and editing the array parameters
